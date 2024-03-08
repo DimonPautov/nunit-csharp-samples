@@ -11,16 +11,15 @@ public class LibraryManager : ILibraryManager
     /// <param name="book">The book to add.</param>
     public void AddBook(Book book)
     {
-        if (!_books.Contains(book))
+        if (!_books.Any(b => b.Articul == book.Articul))
         {
             _books.Add(book);
             Console.WriteLine($"Book '{book.Title}' added to the library.");
         }
         else
         {
-            Console.WriteLine($"Book '{book.Title}' already exists in the library.");
+            Console.WriteLine($"Book with Articul '{book.Articul}' already exists in the library.");
         }
-        // TODO step 2.
     }
 
     /// <summary>
