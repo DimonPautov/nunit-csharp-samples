@@ -11,7 +11,15 @@ public class LibraryManager : ILibraryManager
     /// <param name="book">The book to add.</param>
     public void AddBook(Book book)
     {
-        // TODO step 1.
+        if (!_books.Contains(book))
+        {
+            _books.Add(book);
+            Console.WriteLine($"Book '{book.Title}' added to the library.");
+        }
+        else
+        {
+            Console.WriteLine($"Book '{book.Title}' already exists in the library.");
+        }
         // TODO step 2.
     }
 
@@ -21,6 +29,14 @@ public class LibraryManager : ILibraryManager
     /// <param name="book">The book to remove.</param>
     public void RemoveBook(Book book)
     {
-        // TODO step 1.
+        if (_books.Contains(book))
+        {
+            _books.Remove(book);
+            Console.WriteLine($"Book '{book.Title}' removed from the library.");
+        }
+        else
+        {
+            Console.WriteLine($"Book '{book.Title}' not found in the library.");
+        }
     }
 }
